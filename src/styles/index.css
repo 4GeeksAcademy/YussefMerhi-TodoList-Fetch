@@ -1,12 +1,73 @@
+body {
+    background-color: #F9F9F9;
+}
 
-/* 
+.title {
+    color: #EDDDDE;
+    font-size: 3em;
+    text-align: center;
+}
 
-    You can write your own styles here...
+.list-container > ul li {
+    border: 1px solid lightgray;
+    list-style: none;
+    padding: 5px;
+    background-color: #FEFEFE;
     
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+}
 
-*/
+input {
+    border: none;
+    width: 100%;
+    background-color: #FEFEFE;
+    outline: none;
+}
+
+.list-container > ul {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.fa-xmark {
+    visibility: hidden;
+    margin-left: auto;
+    color: lightcoral;
+    text-align: end;
+}
+
+.list-container li:hover .fa-xmark {
+    visibility: visible; /* Muestra el icono cuando se pasa el ratón por encima del elemento li */
+}
+
+.list-task:hover {
+    background-color: #f0f0f0;
+}
+
+.ul-secondary {
+    border: 0px;
+    z-index: 1;
+}
+#second-paper {
+    width: 98%; 
+    margin: auto;
+    height: 1px;
+    padding: 3px;
+    opacity: 0.9;
+}
+#third-paper {
+    width: 96%; 
+    margin: auto;
+    height: 1px;
+    padding: 3px;
+    opacity: 0.85;
+}
+
+.lines-item {
+    margin-right: 0;
+}
+
+.items {
+    font-size: 15px !important;
+    z-index: 2;
+    color: #B2B2B2;
+}
