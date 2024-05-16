@@ -28,12 +28,10 @@ const Home = () => {
 				<div className='list-container'>
 					<ul>
 						<li>
-							<input 
-								type="text" 
-								onChange={(e)=>setNewTask(e.target.value)}
-								onKeyDown={addTask}
-								value={newTask}
-								placeholder='What Needs To Be Done?'/>	
+                        {tasks.length === 0 ? 
+                        <input type="text" onChange={(e)=>setNewTask(e.target.value)} onKeyDown={addTask} value={newTask} className="list-container ps-3 input-no-tasks input-task" maxlength="34" placeholder="No tasks, add your tasks please."/> 
+                        : 
+                        <input type="text" onChange={(e)=>setNewTask(e.target.value)} onKeyDown={addTask} value={newTask} className="list-container ps-3 input-task" maxlength="34" placeholder="What needs to be done"/>}	
 						</li>
 						{tasks.map((task,index) =>      
                                 <li key={index} className="d-flex align-items-center list-task">

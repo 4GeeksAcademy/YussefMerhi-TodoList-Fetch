@@ -71,3 +71,12 @@ input {
     z-index: 2;
     color: #B2B2B2;
 }
+
+.input-task {
+    list-style: none;
+    text-indent: 3.5em;
+    height: 3em;
+}
+.input-no-tasks::placeholder {
+    font-weight: bold;
+}
