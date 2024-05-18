@@ -28,20 +28,28 @@ const Home = () => {
 				<div className='list-container'>
 					<ul>
 						<li>
-                        {tasks.length === 0 ? 
-                        <input type="text" onChange={(e)=>setNewTask(e.target.value)} onKeyDown={addTask} value={newTask} className="list-container ps-3 input-no-tasks input-task" maxlength="34" placeholder="No tasks, add your tasks please."/> 
-                        : 
-                        <input type="text" onChange={(e)=>setNewTask(e.target.value)} onKeyDown={addTask} value={newTask} className="list-container ps-3 input-task" maxlength="34" placeholder="What needs to be done"/>}	
+                        <input 
+                            type="text" 
+                            onChange={(e)=>setNewTask(e.target.value)} 
+                            onKeyDown={addTask} 
+                            value={newTask} 
+                            className="list-container ps-3 input-no-tasks input-task" maxLength="34" 
+                            placeholder={
+                                tasks.length > 0
+                                    ? "What needs to be done"
+                                    : "No task, add your tasks please."
+                            }
+                        /> 
 						</li>
 						{tasks.map((task,index) =>      
-                                <li key={index} className="d-flex align-items-center list-task">
+                                <li key={index} className="d-flex align-items-center">
                                     {task}
                                     <i onClick={()=>deleteTask(index)} className="fa-solid fa-xmark btn fs-2"></i>
                                 </li>
                             )}
 						<li className="d-flex align-items-center items">
                                 <div className="lines-item"></div>
-                                {tasks.length === 1 ? `${tasks.length} item left` : `${tasks.length} items left`}
+                                {tasks.length} {tasks.length === 1 ? `item` : `items`} left.
                             </li>
 					</ul>
                     <ul className="ul-secondary list-container">
