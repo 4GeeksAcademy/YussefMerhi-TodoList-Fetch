@@ -1,82 +1,156 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #F9F9F9;
+  background: #352f5b;
 }
 
-.title {
-    color: #EDDDDE;
-    font-size: 3em;
-    text-align: center;
+.input-group {
+  width: 35%;
 }
 
-.list-container > ul li {
-    border: 1px solid lightgray;
-    list-style: none;
-    padding: 5px;
-    background-color: #FEFEFE;
-    
+h1 {
+  color: #eee;
+  text-align: center;
+  margin-bottom: 36px;
 }
 
-input {
-    border: none;
-    width: 100%;
-    background-color: #FEFEFE;
-    outline: none;
+.users,
+.btn {
+  font-family: 'Jersey 15';
+  color: #c5bef3;
+  border: 2px solid rgba(197, 190, 243, 1);
+  background-color: rgba(32, 29, 33, 1);
 }
 
-.list-container > ul {
-    padding: 0;
-    margin-bottom: 0;
+.btn:hover,
+.btn:focus {
+  background-color: rgb(116 151 182);
+  color: white
+}
+
+.users::placeholder {
+  color: #c5bef3;
+}
+
+.users:focus {
+  background-color: rgb(45, 58, 70);
+  color: white;
+  border: 2px solid white;
+}
+
+.dropdown-menu {
+  background-color: rgb(116 151 182);
 }
 
 .fa-xmark {
-    visibility: hidden;
-    margin-left: auto;
-    color: lightcoral;
-    text-align: end;
+  visibility: hidden;
 }
 
-.list-container li:hover .fa-xmark {
-    visibility: visible; /* Muestra el icono cuando se pasa el ratón por encima del elemento li */
+li:hover .fa-xmark {
+  visibility: visible;
+  /* Muestra el icono cuando se pasa el ratón por encima del elemento li */
 }
 
-.list-task:hover {
-    background-color: #f0f0f0;
+/* MAIN STYLES */
+
+.container {
+  width: 400px;
+  height: auto;
+  min-height: 400px;
+  padding: 30px;
+  background: transparent;
+  border: 2px solid #e6b7eca1;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
 }
 
-.ul-secondary {
-    border: 0px;
-    z-index: 1;
-}
-#second-paper {
-    width: 98%; 
-    margin: auto;
-    height: 1px;
-    padding: 3px;
-    opacity: 0.9;
-}
-#third-paper {
-    width: 96%; 
-    margin: auto;
-    height: 1px;
-    padding: 3px;
-    opacity: 0.85;
+.input-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
 }
 
-.lines-item {
-    margin-right: 0;
+.todo-input {
+  flex: 1;
+  outline: none;
+  padding: 10px 10px 10px 20px;
+  background-color: transparent;
+  border: 2px solid #e6b7eca1;
+  border-radius: 30px;
+  color: #eee;
+  font-size: 16px;
+  margin-right: 10px;
 }
 
-.items {
-    font-size: 15px !important;
-    z-index: 2;
-    color: #B2B2B2;
+.todo-input::placeholder {
+  color: #bfbfbf;
 }
 
-.input-task {
-    list-style: none;
-    text-indent: 3.5em;
-    height: 3em;
+.todo {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  background-color: #463c7b;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px 12px;
+  border: 3px solid #e6b7eca1;
+  transition: all 0.2s ease;
 }
+
+.todo:first-child {
+  margin-top: 0;
+}
+
+.todo:last-child {
+  margin-bottom: 0;
+}
+
+.todos-container {
+  height: 300px;
+  overflow: overlay;
+}
+
+.todos-container::-webkit-scrollbar-track {
+  background: rgb(247, 247, 247);
+  border-radius: 20px
+}
+
+.todos-container::-webkit-scrollbar {
+  width: 0;
+}
+
+.todos-container:hover::-webkit-scrollbar {
+  width: 7px;
+}
+
+.todos-container::-webkit-scrollbar-thumb {
+  background: #d5d5d5;
+  border-radius: 20px;
+}
+
+li {
+  border-bottom: 2px solid #d5d5d5;
+}
+
+li:hover {
+  background-color: #343143;
+}
+
+.input-is {
+  width: 100%;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
 .input-no-tasks::placeholder {
-    font-weight: bold;
+  font-weight: bold;
 }
