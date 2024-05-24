@@ -51,6 +51,12 @@ const Users = () => {
         setSelectedUser(user);
     };
 
+    function deleteUser() {
+        fetch(`https://playground.4geeks.com/todo/users/${selectedUser}`, { method: 'DELETE' })
+            .then(() => getUsers())
+            .catch(error => console.log('Error deleting user:', error));
+    }
+
     return (
         <>
             <div className="text-center d-flex justify-content-between p-4">
@@ -62,6 +68,9 @@ const Users = () => {
                         aria-expanded="false"
                     >
                         {selectedUser === "" ? "Users" : selectedUser}
+                    </button>
+                    <button onClick={deleteUser} className="btn btn-danger">
+                        Delete User
                     </button>
                     <ul className="dropdown-menu ">
                         {users.map((user, index) => (
