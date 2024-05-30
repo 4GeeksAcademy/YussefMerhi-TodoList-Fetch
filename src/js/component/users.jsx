@@ -6,8 +6,8 @@ const Users = () => {
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState("");
     const [newUser, setNewUser] = useState("");
-    const [modalSuccess, setModalSuccess] = useState(false)
-    const [modalFail, setModalFail] = useState(false)
+    const [modalSuccess, setModalSuccess] = useState(false);
+    const [modalFail, setModalFail] = useState(false);
 
     const getUsers = async () => {
         try {
@@ -47,6 +47,22 @@ const Users = () => {
         }
     };
 
+    const deleteUser = async (userName) => {
+        try {
+            const response = await fetch(
+                `https://playground.4geeks.com/todo/users/${userName}`,
+                { method: "DELETE" }
+            );
+            if (response.ok) {
+                getUsers();
+            } else {
+                console.log("Error deleting user:", response.statusText);
+            }
+        } catch (error) {
+            console.log("Error deleting user:", error);
+        }
+    };
+
     const handleUserSelect = (user) => {
         setSelectedUser(user);
     };
@@ -65,7 +81,7 @@ const Users = () => {
                     </button>
                     <ul className="dropdown-menu ">
                         {users.map((user, index) => (
-                            <li key={index}>
+                            <li key={index} className="d-flex justify-content-between align-items-center">
                                 <a
                                     className="dropdown-item text-white fw-semibold"
                                     href="#"
@@ -73,6 +89,12 @@ const Users = () => {
                                 >
                                     {user.name}
                                 </a>
+                                <button
+                                    className="btn btn-danger ms-2"
+                                    onClick={() => deleteUser(user.name)}
+                                >
+                                    Delete
+                                </button>
                             </li>
                         ))}
                     </ul>

@@ -5,9 +5,9 @@ import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = ({ currentUser }) => {
-
     const [tasks, setTasks] = useState([])
     const [newTask, setNewTask] = useState("")
+
 
     useEffect(() => {
         getTasks()
@@ -44,13 +44,6 @@ const Home = ({ currentUser }) => {
     function deleteTask(indexToDelete) {
         fetch(`https://playground.4geeks.com/todo/todos/${tasks[indexToDelete].id}`, { method: 'DELETE' })
             .then(() => getTasks())
-    }
-
-    function deleteAllTasks() {
-        tasks.forEach((task) => {
-            fetch(`https://playground.4geeks.com/todo/todos/${task.id}`, { method: 'DELETE' })
-                .then(() => getTasks())
-        });
     }
 
     function todoListItem(tasks) {
@@ -96,11 +89,6 @@ const Home = ({ currentUser }) => {
                                 {todoListItem(tasks)}
                             </li>
                         </ul>
-                    </div>
-                    <div className="del-btn">
-                        <button onClick={deleteAllTasks} className="btn btn-danger">
-                            Delete All Tasks
-                        </button>
                     </div>
                 </div>
             </div>
